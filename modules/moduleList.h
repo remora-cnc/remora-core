@@ -7,6 +7,8 @@
 #include "comms/commsHandler.h"
 #include "debug/debug.h"
 #include "digitalPin/digitalPin.h"
+#include "pwm/pwm.h"
+#include "analogPin/analogPin.h"
 //#include "motorPower/motorPower.h"
 #include "resetPin/resetPin.h"
 #include "sigmaDelta/sigmaDelta.h"
