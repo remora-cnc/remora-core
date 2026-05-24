@@ -6,8 +6,12 @@
 
 #include "../../remora.h"
 #include "../../modules/module.h"
+#include "../../modules/moduleFactory.h"
 #include "../../drivers/TMCStepper/TMCStepper.h"
 #include "../../remoraStatus.h"
+
+// Forward declaration — avoids pulling all of remora.h into the module header.
+class Remora;
 
 class TMC : public Module, public std::enable_shared_from_this<TMC>
 {

@@ -1,5 +1,10 @@
 #include "tmc.h"
 #include <cstdint>
+#include "../../remora.h"
+#include "../moduleFactory.h"
+
+// Self-register the TMC5160 module with the factory
+static ModuleFactory::Registrar<TMC5160> tmc5160Registrar("TMC5160");
 
 #define TOFF_VALUE  4 // [1... 15]
 #define TMC_DEBUG   0

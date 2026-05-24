@@ -4,9 +4,12 @@
 #include <cstdint>
 #include <string>
 
-#include "../../remora.h"
 #include "../../modules/module.h"
+#include "../../modules/moduleFactory.h"
 #include "../../../remora-hal/pin/pin.h"
+
+// Forward declaration — avoids pulling all of remora.h into the module header.
+class Remora;
 
 /**
  * @class Blink

@@ -3,6 +3,7 @@
  * @brief Implementation of the RemoraComms class for SPI communication with DMA.
  */
 
+#include "../../remora.h"
 #include "../remoraComms/RemoraComms.h"
 #include <cstdio>
 

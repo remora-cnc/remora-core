@@ -29,6 +29,7 @@ enum class RemoraErrorCode : uint8_t {
     CONFIG_INVALID_INPUT      = 0x04,
     CONFIG_NO_MEMORY          = 0x05,
     CONFIG_PARSE_FAILED       = 0x06,
+    CONFIG_LOADED_DEFAULT     = 0x07,
 
     // MODULE_LOADER
     MODULE_CREATE_FAILED      = 0x01,

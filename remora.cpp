@@ -18,6 +18,7 @@
 */
 
 #include "remora.h"
+#include "modules/comms/commsHandler.h"
 #include "../irqHandlers.h"
 #include "interrupt/interrupt.h"
 #include "json/jsonConfigHandler.h"
@@ -194,6 +195,23 @@ void Remora::run()
                 printf("Error: Invalid state\n");
                 break;
         }
+
+        #ifdef ETH_CTRL
+        if (JsonConfigHandler::new_flash_json)
+        {
+            printf("Checking new configuration file\n");
+            if (configHandler->json_check_length_and_CRC() > 0)
+            {
+                printf("Moving new config file to Flash storage\n");
+                configHandler->store_json_in_flash();
+
+                // force a reset to load new JSON configuration
+                printf("Success. Forcing reboot now...\n");
+                pru_reboot();
+            }
+        }
+        #endif
+
         comms->tasks();
     }
 }
@@ -205,6 +223,8 @@ void Remora::loadModules()
     if (modules.isNull()) {
       // Log something about missing modules or return early
     }
+
+    printf("\nCreating modules from config\n");
 
     for (size_t i = 0; i < modules.size(); i++) {
         if (modules[i]["Thread"].is<const char*>() && modules[i]["Type"].is<const char*>()) {

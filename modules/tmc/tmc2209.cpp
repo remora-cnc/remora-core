@@ -1,5 +1,10 @@
 #include "tmc.h"
 #include <cstdint>
+#include "../../remora.h"
+#include "../moduleFactory.h"
+
+// Self-register the TMC2209 module with the factory
+static ModuleFactory::Registrar<TMC2209> tmc2209Registrar("TMC2209");
 
 #define TOFF_VALUE  4 // [1... 15]
 

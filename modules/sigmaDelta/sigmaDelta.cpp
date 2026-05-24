@@ -1,6 +1,11 @@
 #include "sigmaDelta.h"
 #include <algorithm>
 #include <cstdio>
+#include "../../remora.h"
+#include "../moduleFactory.h"
+
+// Self-register the SigmaDelta module with the factory
+static ModuleFactory::Registrar<SigmaDelta> sigmaDeltaRegistrar("SigmaDelta");
 
 #define CONFINE(value, min, max) (((value) < (min)) ? (min) : (((value) > (max)) ? (max) : (value)))
 #define PID_SD_MAX 256 // 8-bit resolution

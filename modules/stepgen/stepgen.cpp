@@ -1,5 +1,9 @@
 #include "stepgen.h"
+#include "../../remora.h"
+#include "../moduleFactory.h"
 
+// Self-register the Stepgen module with the factory
+static ModuleFactory::Registrar<Stepgen> stepgenRegistrar("Stepgen");
 
 std::shared_ptr<Module> Stepgen::create(const JsonObject& config, Remora* instance)
 	{

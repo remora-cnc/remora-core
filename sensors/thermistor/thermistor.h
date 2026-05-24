@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <string>
+#include <cmath>
 
 #include "../tempSensor.h"
 #include "../../../remora-hal/analogIn/analogIn.h"

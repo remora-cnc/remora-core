@@ -3,9 +3,12 @@
 
 #include <string>
 #include <memory>
-#include "../../remora.h"
 #include "../../modules/module.h"
+#include "../../modules/moduleFactory.h"
 #include "../../../remora-hal/pin/pin.h"
+
+// Forward declaration — avoids pulling all of remora.h into the module header.
+class Remora;
 
 // Global PRUreset variable (declared in extern.h or another source file)
 extern volatile bool PRUreset;

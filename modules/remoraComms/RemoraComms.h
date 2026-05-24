@@ -4,10 +4,12 @@
 #include "stm32h7xx_hal.h"
 #include "stm32h7xx_hal_dma.h"
 
-#include "../../remora.h"
 #include "../../modules/module.h"
 #include "../../modules/moduleinterrupt.h"
+#include "../../../remora-hal/pin/pin.h"
 
+// Forward declaration — avoids pulling all of remora.h into the module header.
+class Remora;
 
 typedef struct
 {

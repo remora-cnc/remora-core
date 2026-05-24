@@ -1,5 +1,9 @@
 #include "temperature.h"
+#include "../../remora.h"
+#include "../moduleFactory.h"
 
+// Self-register the Temperature module with the factory
+static ModuleFactory::Registrar<Temperature> temperatureRegistrar("Temperature");
 
 std::shared_ptr<Module> Temperature::create(const JsonObject& config, Remora* instance)
 {

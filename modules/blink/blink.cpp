@@ -1,5 +1,9 @@
 #include "blink.h"
+#include "../../remora.h"
+#include "../moduleFactory.h"
 
+// Self-register the Blink module with the factory
+static ModuleFactory::Registrar<Blink> blinkRegistrar("Blink");
 
 std::shared_ptr<Module> Blink::create(const JsonObject& config, Remora* instance) {
     const char* pin = config["Pin"];

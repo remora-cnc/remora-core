@@ -1,5 +1,10 @@
 #include "resetPin.h"
 #include <cstdio>
+#include "../../remora.h"
+#include "../moduleFactory.h"
+
+// Self-register the ResetPin module with the factory
+static ModuleFactory::Registrar<ResetPin> resetPinRegistrar("Reset Pin");
 
 std::shared_ptr<Module> ResetPin::create(const JsonObject& config, Remora* instance) {
 	const char* comment = config["Comment"];

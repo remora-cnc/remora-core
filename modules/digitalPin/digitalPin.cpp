@@ -1,4 +1,9 @@
 #include "digitalPin.h"
+#include "../../remora.h"
+#include "../moduleFactory.h"
+
+// Self-register the DigitalPin module with the factory
+static ModuleFactory::Registrar<DigitalPin> digitalPinRegistrar("Digital Pin");
 
 std::shared_ptr<Module> DigitalPin::create(const JsonObject& config, Remora* instance) {
 	const char* pin = config["Pin"];
